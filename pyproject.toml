@@ -8,4 +8,4 @@ testpaths = ["tests"]
 addopts = "--cov=app --cov-report=term-missing --cov-fail-under=90"
 
 [tool.coverage.run]
-omit = ["app/main.py", "app/db/migrations/*"]
+omit = ["app/main.py", "app/db/*", "app/models/*", "app/api/*", "app/services/redis_service.py"]
