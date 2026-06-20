@@ -1,0 +1,15 @@
+import Link from "next/link";
+import { Brain, ChartPie, ShieldCheck, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+
+const features = [
+  { icon: Brain, title: "Bloom-aware generation", text: "Every MCQ is mapped to cognitive levels for measurable learning outcomes." },
+  { icon: ShieldCheck, title: "Validated quality", text: "Topic relevance, duplicate checks, and difficulty controls run before delivery." },
+  { icon: Zap, title: "Fast assessment creation", text: "Generate a ready-to-take quiz in seconds through the FastAPI backend." },
+  { icon: ChartPie, title: "Actionable analytics", text: "Track performance trends, difficulty split, and Bloom distribution." }
+];
+
+export default function LandingPage() {
+  return <main className="mx-auto max-w-7xl px-6 py-12"><section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]"><div className="space-y-8"><p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">AI Assessment Platform</p><h1 className="text-5xl font-black leading-tight md:text-7xl">Generate adaptive quizzes with assessment intelligence.</h1><p className="max-w-2xl text-lg text-muted-foreground">Create unique MCQs, validate quality, map Bloom levels, and understand learner performance from one modern platform.</p><div className="flex gap-4"><Link href="/quiz-generator"><Button>Try AI Quiz Demo</Button></Link><Link href="/analytics"><Button variant="secondary">View Analytics</Button></Link></div></div><Card className="space-y-5"><h2 className="text-2xl font-bold">Live generation preview</h2><div className="rounded-2xl bg-black/20 p-5"><p className="text-sm text-muted-foreground">Topic</p><p className="text-xl font-semibold">Vector databases</p></div><div className="grid grid-cols-3 gap-3 text-center"><div className="rounded-xl bg-white/5 p-4"><p className="text-2xl font-bold">10</p><p className="text-xs text-muted-foreground">MCQs</p></div><div className="rounded-xl bg-white/5 p-4"><p className="text-2xl font-bold">0.85</p><p className="text-xs text-muted-foreground">Similarity guard</p></div><div className="rounded-xl bg-white/5 p-4"><p className="text-2xl font-bold">6</p><p className="text-xs text-muted-foreground">Bloom levels</p></div></div></Card></section><section className="mt-20 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{features.map((feature) => <Card key={feature.title}><feature.icon className="mb-4 h-7 w-7 text-primary" /><h3 className="text-lg font-bold">{feature.title}</h3><p className="mt-2 text-sm text-muted-foreground">{feature.text}</p></Card>)}</section><section className="mt-20 rounded-3xl bg-primary p-10 text-center text-primary-foreground"><h2 className="text-3xl font-black">Ready to reduce manual quiz creation?</h2><p className="mx-auto mt-3 max-w-2xl opacity-90">Launch a generation flow, take the quiz, and inspect Bloom-level outcomes.</p><Link href="/quiz-generator" className="mt-6 inline-block"><Button variant="secondary">Generate Quiz</Button></Link></section></main>;
+}
